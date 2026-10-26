@@ -5,34 +5,92 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mubeena Parvin V.N. | Data Analytics</title>
 <style>
-body{font-family:Arial,sans-serif;max-width:700px;margin:40px auto;padding:0 20px;line-height:1.6;color:#222}
-h1{margin-bottom:0}
-h2{border-bottom:2px solid #4a90d9;padding-bottom:4px;margin-top:32px}
-a{color:#4a90d9}
-.card{border:1px solid #ddd;border-radius:8px;padding:12px 16px}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;color:#fff;line-height:1.6;
+background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1b1b3a);
+background-size:400% 400%;animation:bg 15s ease infinite}
+@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.wrap{max-width:760px;margin:0 auto;padding:60px 20px}
+.hero{text-align:center;padding:40px 0}
+.hero h1{font-size:2.4rem;margin:0;animation:drop 1s ease}
+@keyframes drop{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:none}}
+.typing{font-size:1.2rem;color:#7fd1ff;min-height:32px;margin-top:10px}
+.cursor{display:inline-block;width:2px;height:1.2em;background:#7fd1ff;margin-left:3px;vertical-align:middle;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0}}
+section{opacity:0;transform:translateY(40px);transition:all .8s ease;margin-top:40px}
+section.show{opacity:1;transform:none}
+h2{border-bottom:2px solid #7fd1ff;padding-bottom:6px}
+.skills{display:flex;flex-wrap:wrap;gap:10px}
+.skill{background:rgba(127,209,255,.15);border:1px solid #7fd1ff;border-radius:20px;padding:6px 16px;transition:all .3s}
+.skill:hover{background:#7fd1ff;color:#0f2027;transform:translateY(-4px) scale(1.08);box-shadow:0 0 15px #7fd1ff}
+.card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:16px 20px;transition:all .4s}
+.card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 10px 30px rgba(127,209,255,.4)}
+a{color:#7fd1ff;text-decoration:none}
+a:hover{text-decoration:underline}
+.btn{display:inline-block;margin-top:8px;padding:8px 18px;border:1px solid #7fd1ff;border-radius:6px;transition:all .3s}
+.btn:hover{background:#7fd1ff;color:#0f2027;text-decoration:none}
 </style>
 </head>
 <body>
+<div class="wrap">
+
+<div class="hero">
 <h1>Mubeena Parvin V.N.</h1>
+<div class="typing"><span id="type"></span><span class="cursor"></span></div>
+</div>
+
+<section>
+<h2>About</h2>
 <p>Data Analytics student, learning and building projects to start a career as a data analyst.</p>
+</section>
 
+<section>
 <h2>Skills</h2>
-<ul>
-<li>Python (NumPy, pandas, Matplotlib, Seaborn)</li>
-<li>SQL</li>
-<li>Excel</li>
-<li>Data visualization</li>
-</ul>
+<div class="skills">
+<span class="skill">Python</span>
+<span class="skill">NumPy</span>
+<span class="skill">pandas</span>
+<span class="skill">Matplotlib</span>
+<span class="skill">Seaborn</span>
+<span class="skill">SQL</span>
+<span class="skill">Excel</span>
+<span class="skill">Data Visualization</span>
+</div>
+</section>
 
+<section>
 <h2>Projects</h2>
 <div class="card">
 <h3>ScreenSense AI</h3>
 <p>Screen-time risk prediction web app using Flask and Random Forest.</p>
-<a href="https://github.com/mubeenaparvin/ScreenSense-ai">View on GitHub</a>
+<a class="btn" href="https://github.com/mubeenaparvin/ScreenSense-ai">View on GitHub</a>
 </div>
+</section>
 
+<section>
 <h2>Contact</h2>
 <p>LinkedIn: <a href="https://www.linkedin.com/in/mubeena-parvin">mubeena-parvin</a></p>
 <p>GitHub: <a href="https://github.com/mubeenaparvin">mubeenaparvin</a></p>
+</section>
+
+</div>
+
+<script>
+var words=["Data Analytics Student","Python Learner","Future Data Analyst"];
+var w=0,c=0,del=false,el=document.getElementById("type");
+function tick(){
+var word=words[w];
+el.textContent=del?word.substring(0,c--):word.substring(0,c++);
+var speed=del?50:110;
+if(!del&&c>word.length){del=true;speed=1200}
+else if(del&&c<0){del=false;w=(w+1)%words.length;c=0;speed=400}
+setTimeout(tick,speed);
+}
+tick();
+var obs=new IntersectionObserver(function(e){
+e.forEach(function(x){if(x.isIntersecting)x.target.classList.add("show")})
+},{threshold:0.15});
+document.querySelectorAll("section").forEach(function(s){obs.observe(s)});
+</script>
 </body>
 </html>
