@@ -6,25 +6,21 @@
 <title>Mubeena Parvin V.N. | Data Analytics</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;color:#fff;line-height:1.6;
-background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1b1b3a);
-background-size:400% 400%;animation:bg 15s ease infinite}
-@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.wrap{max-width:760px;margin:0 auto;padding:60px 20px}
-.hero{text-align:center;padding:40px 0}
+body{margin:0;font-family:Arial,sans-serif;color:#fff;line-height:1.6;background:#0f2027}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:60px 20px}
+.hero{text-align:center;padding:50px 0 20px}
 .hero h1{font-size:2.4rem;margin:0;animation:drop 1s ease}
-@keyframes drop{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:none}}
-.typing{font-size:1.2rem;color:#7fd1ff;min-height:32px;margin-top:10px}
-.cursor{display:inline-block;width:2px;height:1.2em;background:#7fd1ff;margin-left:3px;vertical-align:middle;animation:blink 1s infinite}
-@keyframes blink{50%{opacity:0}}
+.hero p{color:#7fd1ff;font-size:1.15rem;margin-top:8px;animation:drop 1.4s ease}
+@keyframes drop{from{opacity:0;transform:translateY(-25px)}to{opacity:1;transform:none}}
 section{opacity:0;transform:translateY(40px);transition:all .8s ease;margin-top:40px}
 section.show{opacity:1;transform:none}
 h2{border-bottom:2px solid #7fd1ff;padding-bottom:6px}
 .skills{display:flex;flex-wrap:wrap;gap:10px}
 .skill{background:rgba(127,209,255,.15);border:1px solid #7fd1ff;border-radius:20px;padding:6px 16px;transition:all .3s}
-.skill:hover{background:#7fd1ff;color:#0f2027;transform:translateY(-4px) scale(1.08);box-shadow:0 0 15px #7fd1ff}
+.skill:hover{background:#7fd1ff;color:#0f2027;transform:translateY(-4px)}
 .card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:16px 20px;transition:all .4s}
-.card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 10px 30px rgba(127,209,255,.4)}
+.card:hover{transform:translateY(-8px)}
 a{color:#7fd1ff;text-decoration:none}
 a:hover{text-decoration:underline}
 .btn{display:inline-block;margin-top:8px;padding:8px 18px;border:1px solid #7fd1ff;border-radius:6px;transition:all .3s}
@@ -32,11 +28,12 @@ a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<div class="wrap">
+<canvas id="bg"></canvas>
 
+<div class="wrap">
 <div class="hero">
 <h1>Mubeena Parvin V.N.</h1>
-<div class="typing"><span id="type"></span><span class="cursor"></span></div>
+<p>Data Analytics Student | Future Data Analyst</p>
 </div>
 
 <section>
@@ -69,28 +66,4 @@ a:hover{text-decoration:underline}
 
 <section>
 <h2>Contact</h2>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/mubeena-parvin">mubeena-parvin</a></p>
-<p>GitHub: <a href="https://github.com/mubeenaparvin">mubeenaparvin</a></p>
-</section>
-
-</div>
-
-<script>
-var words=["Data Analytics Student","Python Learner","Future Data Analyst"];
-var w=0,c=0,del=false,el=document.getElementById("type");
-function tick(){
-var word=words[w];
-el.textContent=del?word.substring(0,c--):word.substring(0,c++);
-var speed=del?50:110;
-if(!del&&c>word.length){del=true;speed=1200}
-else if(del&&c<0){del=false;w=(w+1)%words.length;c=0;speed=400}
-setTimeout(tick,speed);
-}
-tick();
-var obs=new IntersectionObserver(function(e){
-e.forEach(function(x){if(x.isIntersecting)x.target.classList.add("show")})
-},{threshold:0.15});
-document.querySelectorAll("section").forEach(function(s){obs.observe(s)});
-</script>
-</body>
-</html>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/mubeena-parvin">mubeena-parvi
